@@ -58,22 +58,23 @@
         android:src="@drawable/img"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.561" />
+        app:layout_constraintVertical_bias="0.36" />
 
     <Button
         android:id="@+id/Questionsbtn"
-        android:layout_width="356dp"
-        android:layout_height="58dp"
+        android:background="@drawable/button_round"
+        android:layout_width="329dp"
+        android:layout_height="52dp"
         android:layout_marginBottom="50dp"
         android:onClick="OnButtonClick"
         android:text="질문하기"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Questions"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintVertical_bias="0.238" />
 </androidx.constraintlayout.widget.ConstraintLayout>
