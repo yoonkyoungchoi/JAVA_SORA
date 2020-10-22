@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbarSize="10dp"
     tools:context=".MainActivity">
 
 
@@ -13,30 +14,28 @@
         android:layout_height="75dp"
         android:layout_marginStart="38dp"
         android:layout_marginLeft="38dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="408dp"
         android:layout_marginEnd="38dp"
         android:layout_marginRight="38dp"
-        android:layout_marginBottom="250dp"
         android:layout_weight="1"
         android:ems="10"
         android:hint="질문을 입력하세요."
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="342dp"
         android:layout_height="246dp"
-        android:layout_marginBottom="204dp"
         android:src="@drawable/img3"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.594"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.595" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -54,27 +53,48 @@
         android:id="@+id/imageView1"
         android:layout_width="208dp"
         android:layout_height="223dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginTop="152dp"
         android:src="@drawable/img"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.566"
+        app:layout_constraintHorizontal_bias="0.61"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Questionsbtn"
-        android:background="@drawable/button_round"
         android:layout_width="329dp"
         android:layout_height="52dp"
         android:layout_marginBottom="50dp"
-        android:onClick="OnButtonClick"
+        android:background="@drawable/button_round"
         android:text="질문하기"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Questions"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintVertical_bias="0.145" />
+<!--        android:onClick="OnButtonClick"-->
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="408dp"
+        android:layout_height="164dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/textbox" />
+
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="303dp"
+        android:layout_height="43dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/imageView1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.477" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
