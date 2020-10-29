@@ -53,10 +53,10 @@
         android:id="@+id/imageView1"
         android:layout_width="208dp"
         android:layout_height="223dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="120dp"
         android:src="@drawable/img"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,6 +66,7 @@
         android:layout_height="52dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/button_round"
+        android:onClick="OnButtonClick"
         android:text="질문하기"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,16 +78,14 @@
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="408dp"
-        android:layout_height="164dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="166dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/textbox" />
+        app:srcCompat="@drawable/textbox"
+        tools:layout_editor_absoluteX="3dp" />
 
     <TextView
-        android:id="@+id/answer"
+        android:id="@+id/answertext"
         android:layout_width="303dp"
         android:layout_height="43dp"
         android:gravity="center"
@@ -95,6 +94,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintVertical_bias="0.805" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

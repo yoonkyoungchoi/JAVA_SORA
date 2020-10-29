@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Random randomanswer = new Random();
 
 
-    String[] answer1 = {"그건 아닌것 같아", "다시 생각해 봐", "안 먹는걸 추천 해", "다른걸 먹어",
+    String[] answer1 = {"그건 아닌것 같아", "다시 생각해 봐", "나는 추천 해", "다른걸 먹어",
             "매운게 좋을 것 같아", "조금만 먹어", "간단한게 좋을 것 같아", "완전 좋은 생각이야", "부드러운 음식",
             "추억돋는 음식", "달달한 음식", "행복해지는 음식을 먹어", "아마도", "다시 생각해", "그건 아니야", "아닌것 같아", "나라면 하지 않겠어", "왜 고민해?",
             "하지마", "좋아", "고민하지 마", "해버려", "하는게 좋을 것 같아", "미쳤어?", "도랐어?", "나라면 하지 않을 것 같아",
@@ -40,9 +40,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnButtonClick(View view) {
-        final int answer = randomanswer.nextInt(50) + 1;
-
-        answerText = (TextView) findViewById(R.id.answer);
+        final int answer = randomanswer.nextInt(answer1.length) + 1;
+        answerText = (TextView) findViewById(R.id.answertext);
         Questionbtn = (Button) findViewById(R.id.Questionsbtn);
         Questionbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 answerText.setText("답 : " + answer1[answer]);
             }
         });
-//        answer.text = "답 : " + answer
+
         //Toast.makeText(getApplicationContext(), "소라 고동 : " + answer1[answer], Toast.LENGTH_SHORT).show();
 //        switch (Questions.getText().toString()){
 //            case "먹":
