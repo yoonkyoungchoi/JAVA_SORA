@@ -6,57 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Diary">
 
-    <EditText
-        android:id="@+id/content"
-        android:layout_width="313dp"
-        android:layout_height="248dp"
-        android:layout_marginBottom="220dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="오늘 하루 일기"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.353" />
-
-    <EditText
-        android:id="@+id/sora_question"
-        android:layout_width="307dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="572dp"
-        android:ems="10"
-        android:hint="소라고동 질문"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/save_diary"
-        android:layout_width="309dp"
-        android:layout_height="53dp"
-        android:text="일기 저장"
-        android:background="@drawable/button_round"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content"
-        app:layout_constraintVertical_bias="0.259" />
-
-    <EditText
-        android:id="@+id/sora_answer"
-        android:layout_width="308dp"
-        android:layout_height="51dp"
-        android:ems="10"
-        android:hint="소라고동 답"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sora_question" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
