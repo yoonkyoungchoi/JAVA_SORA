@@ -22,7 +22,7 @@
         android:id="@+id/go_questionbtn"
         android:layout_width="289dp"
         android:layout_height="53dp"
-        android:layout_marginTop="312dp"
+        android:layout_marginTop="392dp"
         android:background="@drawable/button_round"
         android:text="질문 하기"
         app:layout_constraintEnd_toEndOf="parent"
