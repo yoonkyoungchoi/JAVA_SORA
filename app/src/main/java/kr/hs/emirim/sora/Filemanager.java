@@ -2,6 +2,10 @@ package kr.hs.emirim.sora;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -40,7 +44,6 @@ public class Filemanager {
             Log.d(TAG, "vk파일 크기" +  fisDiary.available());
 
             while (fisDiary.read(diaryData) != -1) {
-
             }
             Log.d(TAG, "읽어들인거 ㅉ끼음");
             return new String(diaryData);

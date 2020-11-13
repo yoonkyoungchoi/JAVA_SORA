@@ -22,6 +22,8 @@ public class Question extends AppCompatActivity {
     private TextView answerText;
     Button Questionbtn;
     Random randomanswer = new Random();
+    private EditText editText;
+    private String question;
 
 
     String[] answer1 = {"그건 아닌것 같아", "다시 생각해 봐", "나는 추천 해", "다른걸 먹어",
@@ -36,16 +38,23 @@ public class Question extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-    }
 
-    public void OnButtonClick(View view) {
-        final int answer = randomanswer.nextInt(answer1.length) + 1;
-        answerText = (TextView) findViewById(R.id.answertext);
+//        editText = findViewById(R.id.Questions);
+//        question = editText.getText().toString();
+
+        answerText = (TextView) findViewById(R.id.Questions);
         Questionbtn = (Button) findViewById(R.id.Questionsbtn);
+
+        final int answer = randomanswer.nextInt(answer1.length) + 1;
+
         Questionbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                answerText.setText("답 : " + answer1[answer]);
+                if (question.length() == 0) {
+                    Toast.makeText(getApplicationContext(), "질문을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                } else {
+                    answerText.setText("답 : " + answer1[answer]);
+                }
             }
         });
     }
