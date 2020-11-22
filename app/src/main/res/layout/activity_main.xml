@@ -30,10 +30,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/go_questionbtn2"
+        android:layout_width="289dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="488dp"
+        android:background="@drawable/button_round"
+        android:text="리스트"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/go_diarybtn"
         android:layout_width="289dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginBottom="68dp"
         android:background="@drawable/button_round_blue"
         android:text="일기"
         app:layout_constraintBottom_toBottomOf="parent"

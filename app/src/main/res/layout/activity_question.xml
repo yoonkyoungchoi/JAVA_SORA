@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbarSize="10dp"
-    tools:context=".Question">
+    tools:context=".Filemanager">
 
     <EditText
         android:id="@+id/Questions"

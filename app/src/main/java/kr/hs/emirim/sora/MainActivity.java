@@ -41,10 +41,20 @@ public class MainActivity extends AppCompatActivity {
         diary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Diary.class);
+                Intent intent = new Intent(MainActivity.this, Question.class);
                 startActivity(intent);
             }
         });
+
+        Button list = (Button) findViewById(R.id.go_questionbtn2);
+        list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, QuestionList.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

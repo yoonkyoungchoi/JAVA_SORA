@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Diary"></activity>
+        <activity android:name=".QuestionList"></activity>
+        <activity android:name=".Diary" />
         <activity android:name=".Question" />
         <activity android:name=".MainActivity">
             <intent-filter>
