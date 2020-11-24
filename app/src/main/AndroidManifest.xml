@@ -12,8 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".QuestionList"></activity>
-
-        <activity android:name=".Test"/>
+        <activity android:name=".Test" />
         <activity android:name=".Question" />
         <activity android:name=".MainActivity">
             <intent-filter>
