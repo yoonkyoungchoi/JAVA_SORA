@@ -45,16 +45,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        Button list = (Button) findViewById(R.id.go_questionbtn2);
-        list.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, QuestionList.class);
-                startActivity(intent);
-            }
-        });
-
-
     }
 }

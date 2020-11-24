@@ -8,23 +8,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class QuestionList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_list);
-//
-//        final EditText answerlist = (EditText) findViewById(R.id.Questions);
-//        final TextView textView = (TextView)findViewById(R.id.answerlist);
-//        Button button = (Button)findViewById(R.id.b1);
-//
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                textView.setText(answerlist.getText());
-//            }
-//        });
-//    }
+
+        String data= et.getText().toString();
+        FirebaseDatabase firebaseDatabase= FirebaseDatabase.getInstance();
+        DatabaseReference rootRef= firebaseDatabase.getReference();
+
     }
 }
