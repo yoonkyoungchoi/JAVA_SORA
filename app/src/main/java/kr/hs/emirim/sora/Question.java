@@ -10,20 +10,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Question extends AppCompatActivity {
 
-    //    ArrayList<String> food = new ArrayList<String>(); // 음식에 대한 답변 배열`
-//    ArrayList<String> Worry = new ArrayList<String>(); // 고민에 대한 답변 배열
-//    ArrayList<String> Choice = new ArrayList<String>(); // 선택에 대한 답변 배열
     private EditText Questions;
     private TextView answerText;
-    Button Questionbtn;
+    private Button Questionbtn;
     Random randomanswer = new Random();
-    private EditText editText;
-    private String question;
+
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = firebaseDatabase.getReference();
 
 
     String[] answer1 = {"그건 아닌것 같아", "다시 생각해 봐", "나는 추천 해", "다른걸 먹어",
@@ -39,22 +40,24 @@ public class Question extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-//        editText = findViewById(R.id.Questions);
-//        question = editText.getText().toString();
-
-        answerText = (TextView) findViewById(R.id.Questions);
+        answerText = (TextView) findViewById(R.id.answertext);
         Questionbtn = (Button) findViewById(R.id.Questionsbtn);
+        Questions = (EditText) findViewById(R.id.Questions);
 
         final int answer = randomanswer.nextInt(answer1.length) + 1;
 
         Questionbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (question.length() == 0) {
-                    Toast.makeText(getApplicationContext(), "질문을 입력해주세요.", Toast.LENGTH_SHORT).show();
-                } else {
-                    answerText.setText("답 : " + answer1[answer]);
-                }
+
+
+                answerText.setText("답 : " + answer1[answer]);
+
+                String answertext = answer1[answer];
+                String questiontxt = Questions.getText().toString();
+                Context context = new Context(questiontxt,answertext);
+                databaseReference.child("Context").push().setValue(context);
+
             }
         });
     }
