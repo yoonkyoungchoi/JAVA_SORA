@@ -5,8 +5,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.AndroidException;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
@@ -16,34 +20,57 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class QuestionList extends AppCompatActivity {
+import java.util.ArrayList;
 
-    private DatabaseReference mDatabase;
+public class QuestionList extends AppCompatActivity implements View.OnClickListener, ContextviewListener{
+
+    private ArrayList<Context> contextsitem = null;
+    private Adapter adapter = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_list);
-
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-
     }
 
-    private void readContext() {
-        mDatabase.child("Context").addChildEventListener(new ValueEventListener() {
+    private void addChildEvent(){
+        databaseReference.child("Context").addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                if (datasnapshot.getValue(Context.class) != null) {
-                    Context post = datasnapshot.getValue(Context.class);
-                    Log.w("FirebaseData", "get Data" + post.toString());
-                } else {
-                    Toast.makeText(MainActivity.this, "데이터 없음...", Toast.LENGTH_SHORT).show();
-                }
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Context context = snapshot.getValue(Context.class);
+
+                context.add(context);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.w("FireBaseData", "loadPost:onCancelled", error.toException());
+
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+
+    }
+
+    @Override
+    public void onItemClick(int position, View view) {
+
     }
 }
