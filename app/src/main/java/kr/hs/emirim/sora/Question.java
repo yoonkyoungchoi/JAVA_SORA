@@ -1,13 +1,19 @@
 package kr.hs.emirim.sora;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCanceledListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -53,8 +59,12 @@ public class Question extends AppCompatActivity {
                 String answertext = answer1[answer];
                 String questiontxt = Questions.getText().toString();
                 SoraContext context = new SoraContext(questiontxt,answertext);
-                databaseReference.child("Context").push().setValue(context);
-
+                databaseReference.child("Context").push().setValue(context).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(Question.this, "데이터베이스에 넣어짐.", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
     }

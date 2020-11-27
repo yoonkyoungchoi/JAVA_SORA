@@ -78,7 +78,7 @@ public class QuestionListActivity extends AppCompatActivity implements View.OnCl
     }
 
     private  void initView(){
-        Button regbtn = (Button)findViewById(R.id.btn);
+        Button regbtn = (Button)findViewById(R.id.read_data_btn);
         regbtn.setOnClickListener(this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.question_list_view);
