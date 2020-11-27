@@ -3,43 +3,47 @@ package kr.hs.emirim.sora;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.AndroidException;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.Button;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class QuestionList extends AppCompatActivity implements View.OnClickListener, ContextviewListener{
+public class QuestionListActivity extends AppCompatActivity implements View.OnClickListener, ContextviewListener{
 
-    private ArrayList<Context> contextsitem = null;
-    private Adapter adapter = null;
+    private ArrayList<SoraContext> contextsItem = null;
+    private ContextAdapter contextAdapter = null;
+
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference = firebaseDatabase.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_list);
+
+        init();
+        initView();
     }
 
     private void addChildEvent(){
         databaseReference.child("Context").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Context context = snapshot.getValue(Context.class);
+                SoraContext soraContext = snapshot.getValue(SoraContext.class);
+                contextsItem.add(soraContext);
+                contextAdapter.notifyDataSetChanged();
 
-                context.add(context);
             }
 
             @Override
@@ -67,6 +71,20 @@ public class QuestionList extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
+    }
+
+    private void init(){
+        contextsItem = new ArrayList<>();
+    }
+
+    private  void initView(){
+        Button regbtn = (Button)findViewById(R.id.btn);
+        regbtn.setOnClickListener(this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.question_list_view);
+        contextAdapter= new ContextAdapter(contextsItem,this,this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(contextAdapter);
     }
 
     @Override

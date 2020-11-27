@@ -1,10 +1,10 @@
 package kr.hs.emirim.sora;
 
-public class Context {
+public class SoraContext {
     public String Questions;
     public String Answer;
 
-    public Context() {
+    public SoraContext() {
 
     }
 
@@ -24,7 +24,7 @@ public class Context {
         Answer = answer;
     }
 
-    public Context(String Questions, String Answer) {
+    public SoraContext(String Questions, String Answer) {
         this.Questions = Questions;
         this.Answer = Answer;
     }

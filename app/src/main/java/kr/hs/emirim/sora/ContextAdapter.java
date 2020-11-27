@@ -1,27 +1,28 @@
 package kr.hs.emirim.sora;
 
-import android.hardware.TriggerEvent;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+public class ContextAdapter extends RecyclerView.Adapter<ContextAdapter.ViewHolder> {
     private Context context = null;
-    private ArrayList<Context> contexts_item = null;
+    private ArrayList<SoraContext> contexts_item = null;
     private ContextviewListener contextviewListener = null;
 
-    public Adapter(Context context, ArrayList<Context> contexts_item, ContextviewListener contextviewListener) {
+    public ContextAdapter() { }
+    public ContextAdapter(ArrayList<SoraContext> contexts_item, Context context, ContextviewListener contextviewListener) {
         this.context = context;
         this.contexts_item = contexts_item;
         this.contextviewListener = contextviewListener;
     }
+
 
     @NonNull
     @Override
