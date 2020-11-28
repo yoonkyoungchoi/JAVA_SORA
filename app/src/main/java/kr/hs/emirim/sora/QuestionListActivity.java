@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -36,14 +37,23 @@ public class QuestionListActivity extends AppCompatActivity implements View.OnCl
         initView();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        addChildEvent();
+    }
+
     private void addChildEvent(){
+
         databaseReference.child("Context").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 SoraContext soraContext = snapshot.getValue(SoraContext.class);
                 contextsItem.add(soraContext);
+                if (soraContext != null) {
+                    Log.e("test",soraContext.getQuestions()+soraContext.getAnswer());
+                }
                 contextAdapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -70,7 +80,10 @@ public class QuestionListActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
-
+        switch (view.getId()) {
+            case R.id.read_data_btn :
+                addChildEvent();
+        }
     }
 
     private void init(){

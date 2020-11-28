@@ -10,6 +10,7 @@
         android:id="@+id/question_list"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:text="question text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -18,6 +19,7 @@
         android:id="@+id/answer_list"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:text="answer text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_list" />

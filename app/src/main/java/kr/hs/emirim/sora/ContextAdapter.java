@@ -16,20 +16,18 @@ public class ContextAdapter extends RecyclerView.Adapter<ContextAdapter.ViewHold
     private ArrayList<SoraContext> contexts_item = null;
     private ContextviewListener contextviewListener = null;
 
-    public ContextAdapter() { }
     public ContextAdapter(ArrayList<SoraContext> contexts_item, Context context, ContextviewListener contextviewListener) {
-        this.context = context;
         this.contexts_item = contexts_item;
+        this.context = context;
         this.contextviewListener = contextviewListener;
     }
-
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.question_list_item, viewGroup, false);
-        ViewHolder viewHolder = new ViewHolder(v);
-        return viewHolder;
+        ViewHolder holder = new ViewHolder(v);
+        return holder;
     }
 
     @Override
@@ -40,7 +38,7 @@ public class ContextAdapter extends RecyclerView.Adapter<ContextAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return 0;
+        return contexts_item.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
