@@ -49,16 +49,14 @@ public class Question extends AppCompatActivity {
         Questions = (EditText) findViewById(R.id.Questions);
 
         final int answer = randomanswer.nextInt(answer1.length) + 1;
-        final String questiontxt = Questions.getText().toString();
 
         Questionbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String answertext = answer1[answer];
-                if (!TextUtils.isEmpty(questiontxt)) {
-                    Toast.makeText(Question.this, "글자를 적어주세요!", Toast.LENGTH_LONG).show();
-                } else {
+                if (!TextUtils.isEmpty(Questions.getText().toString())) {   //이거 뜻이 빈칸이 아니라는 소리니까 반대로 해야돼
+                    String questiontxt = Questions.getText().toString();
                     answerText.setText("답 : " + answer1[answer]);
+                    String answertext = answer1[answer];
                     SoraContext context = new SoraContext(questiontxt, answertext);
                     databaseReference.child("Context").push().setValue(context).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -66,6 +64,8 @@ public class Question extends AppCompatActivity {
                             Toast.makeText(Question.this, "질문이 저장되었습니다.", Toast.LENGTH_LONG).show();
                         }
                     });
+                } else {
+                    Toast.makeText(Question.this, "글자를 적어주세요!", Toast.LENGTH_LONG).show();
                 }
             }
         });
