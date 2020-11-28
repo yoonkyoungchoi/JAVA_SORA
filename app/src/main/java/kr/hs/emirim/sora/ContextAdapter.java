@@ -32,8 +32,8 @@ public class ContextAdapter extends RecyclerView.Adapter<ContextAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.question.setText(contexts_item.get(i).getQuestions());
-        viewHolder.answer.setText(contexts_item.get(i).getAnswer());
+        viewHolder.question.setText("질문 : " + contexts_item.get(i).getQuestions());
+        viewHolder.answer.setText("답 : " + contexts_item.get(i).getAnswer());
     }
 
     @Override

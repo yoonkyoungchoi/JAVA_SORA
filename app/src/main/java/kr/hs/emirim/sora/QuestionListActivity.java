@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class QuestionListActivity extends AppCompatActivity implements View.OnClickListener, ContextviewListener{
+public class QuestionListActivity extends AppCompatActivity implements ContextviewListener{
 
     private ArrayList<SoraContext> contextsItem = null;
     private ContextAdapter contextAdapter = null;
@@ -35,11 +35,6 @@ public class QuestionListActivity extends AppCompatActivity implements View.OnCl
 
         init();
         initView();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         addChildEvent();
     }
 
@@ -78,21 +73,11 @@ public class QuestionListActivity extends AppCompatActivity implements View.OnCl
         });
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.read_data_btn :
-                addChildEvent();
-        }
-    }
-
     private void init(){
         contextsItem = new ArrayList<>();
     }
 
     private  void initView(){
-        Button regbtn = (Button)findViewById(R.id.read_data_btn);
-        regbtn.setOnClickListener(this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.question_list_view);
         contextAdapter= new ContextAdapter(contextsItem,this,this);
