@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -48,23 +49,24 @@ public class Question extends AppCompatActivity {
         Questions = (EditText) findViewById(R.id.Questions);
 
         final int answer = randomanswer.nextInt(answer1.length) + 1;
+        final String questiontxt = Questions.getText().toString();
 
         Questionbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                answerText.setText("답 : " + answer1[answer]);
-
                 String answertext = answer1[answer];
-                String questiontxt = Questions.getText().toString();
-                SoraContext context = new SoraContext(questiontxt,answertext);
-                databaseReference.child("Context").push().setValue(context).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(Question.this, "데이터베이스에 넣어짐.", Toast.LENGTH_LONG).show();
-                    }
-                });
+                if (!TextUtils.isEmpty(questiontxt)) {
+                    Toast.makeText(Question.this, "글자를 적어주세요!", Toast.LENGTH_LONG).show();
+                } else {
+                    answerText.setText("답 : " + answer1[answer]);
+                    SoraContext context = new SoraContext(questiontxt, answertext);
+                    databaseReference.child("Context").push().setValue(context).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(Question.this, "질문이 저장되었습니다.", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
         });
     }
